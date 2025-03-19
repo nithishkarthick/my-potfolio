@@ -19,6 +19,16 @@ const ContactSection = styled.section`
     object-fit: cover;
     z-index: -1; /* Ensure video stays in the background */
   }
+
+  /* Media Query for Tablets and Smaller */
+  @media (max-width: 768px) {
+    padding: 50px 15px;
+  }
+
+  /* Media Query for Mobile */
+  @media (max-width: 480px) {
+    padding: 40px 10px;
+  }
 `;
 
 const ContactForm = styled.form`
@@ -30,6 +40,17 @@ const ContactForm = styled.form`
   margin: 50px auto;
   z-index: 1;
   position: relative;
+  
+  /* Media Query for Tablets and Smaller */
+  @media (max-width: 768px) {
+    padding: 30px;
+  }
+
+  /* Media Query for Mobile */
+  @media (max-width: 480px) {
+    padding: 20px;
+    width: 90%;
+  }
 `;
 
 const InputField = styled.input`
@@ -39,6 +60,17 @@ const InputField = styled.input`
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 16px;
+
+  /* Media Query for Tablets and Smaller */
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+
+  /* Media Query for Mobile */
+  @media (max-width: 480px) {
+    font-size: 12px;
+    padding: 12px;
+  }
 `;
 
 const TextareaField = styled.textarea`
@@ -49,6 +81,17 @@ const TextareaField = styled.textarea`
   border-radius: 5px;
   font-size: 16px;
   resize: vertical;
+
+  /* Media Query for Tablets and Smaller */
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+
+  /* Media Query for Mobile */
+  @media (max-width: 480px) {
+    font-size: 12px;
+    padding: 12px;
+  }
 `;
 
 const SubmitButton = styled.button`
@@ -62,6 +105,29 @@ const SubmitButton = styled.button`
 
   &:hover {
     background-color: #0056b3;
+  }
+
+  /* Media Query for Tablets and Smaller */
+  @media (max-width: 768px) {
+    font-size: 14px;
+    padding: 12px 25px;
+  }
+
+  /* Media Query for Mobile */
+  @media (max-width: 480px) {
+    font-size: 12px;
+    padding: 10px 20px;
+  }
+`;
+
+const Message = styled.p`
+  font-size: 18px;
+  color: white;
+  margin-top: 20px;
+
+  /* Media Query for Mobile */
+  @media (max-width: 480px) {
+    font-size: 14px;
   }
 `;
 
@@ -117,9 +183,8 @@ const Contact = () => {
         Your browser does not support the video tag.
       </video>
 
-  
       <ContactForm onSubmit={handleSubmit}>
-      <h2>Get In Touch</h2>
+        <h2>Get In Touch</h2>
         <InputField
           type="text"
           name="name"
@@ -143,8 +208,8 @@ const Contact = () => {
         />
         <SubmitButton type="submit">Send Message</SubmitButton>
       </ContactForm>
-      {isSuccess && <p>Your message has been sent successfully!</p>}
-      {isError && <p>There was an error sending your message. Please try again later.</p>}
+      {isSuccess && <Message>Your message has been sent successfully!</Message>}
+      {isError && <Message>There was an error sending your message. Please try again later.</Message>}
     </ContactSection>
   );
 };

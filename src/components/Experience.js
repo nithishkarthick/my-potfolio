@@ -9,6 +9,16 @@ const ExperienceSection = styled.section`
   background: linear-gradient(45deg, rgba(255, 0, 0, 0.7), rgba(0, 255, 255, 0.7)); /* Gradient background inside the section */
   z-index: 1; /* Keeps the content above the video */
   color: white; /* Ensures the text inside is white */
+
+  /* Media Query for Tablets */
+  @media (max-width: 768px) {
+    padding: 50px 15px;
+  }
+
+  /* Media Query for Mobile */
+  @media (max-width: 480px) {
+    padding: 40px 10px;
+  }
 `;
 
 const VideoBackground = styled.video`
@@ -19,6 +29,11 @@ const VideoBackground = styled.video`
   height: 100%;
   object-fit: cover;
   z-index: -1; /* Places the video behind the content */
+
+  /* Make video responsive */
+  @media (max-width: 768px) {
+    height: auto;
+  }
 `;
 
 const ExperienceItem = styled.div`
@@ -28,6 +43,7 @@ const ExperienceItem = styled.div`
   border-radius: 10px;
   box-shadow: 0 4px 6px rgb(77, 71, 71);
   transition: transform 0.3s ease;
+  width: 100%; /* Ensure it fills the width on smaller screens */
 
   &:hover {
     transform: scale(1.05);
@@ -36,11 +52,43 @@ const ExperienceItem = styled.div`
   h3 {
     font-size: 1.8rem;
     color: #333;
+
+    /* Media Query for Tablets and Mobile */
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+
+    /* Media Query for Mobile */
+    @media (max-width: 480px) {
+      font-size: 1.3rem;
+    }
   }
 
   p {
     font-size: 1.2rem;
     color: #555;
+
+    /* Media Query for Tablets and Mobile */
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+
+    /* Media Query for Mobile */
+    @media (max-width: 480px) {
+      font-size: 0.9rem;
+    }
+  }
+
+  /* Media Query for Tablets and Mobile */
+  @media (max-width: 768px) {
+    padding: 15px;
+    margin: 15px 0;
+  }
+
+  /* Media Query for Mobile */
+  @media (max-width: 480px) {
+    padding: 10px;
+    margin: 10px 0;
   }
 `;
 

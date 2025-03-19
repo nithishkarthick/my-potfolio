@@ -9,6 +9,16 @@ const CertificatesSection = styled.section`
   background-color: rgba(244, 244, 244, 0.8); /* Semi-transparent background */
   text-align: center;
   z-index: 1; /* Ensure content is above the video */
+
+  /* Media Query for Tablets and Smaller */
+  @media (max-width: 768px) {
+    padding: 50px 15px; /* Adjust padding for smaller screens */
+  }
+
+  /* Media Query for Mobile */
+  @media (max-width: 480px) {
+    padding: 30px 10px; /* Less padding for mobile */
+  }
 `;
 
 const VideoBackground = styled.video`
@@ -19,6 +29,11 @@ const VideoBackground = styled.video`
   height: 100%;
   object-fit: cover;
   z-index: -1; /* Keep the video behind the content */
+
+  /* Media Query for Tablets and smaller */
+  @media (max-width: 768px) {
+    object-fit: contain; /* Adjust the video fit for smaller screens */
+  }
 `;
 
 const CertificatesContainer = styled.div`
@@ -27,6 +42,16 @@ const CertificatesContainer = styled.div`
   justify-content: center;
   gap: 20px;
   margin-top: 20px;
+
+  /* Media Query for Tablets and smaller */
+  @media (max-width: 768px) {
+    gap: 15px; /* Adjust gap for tablets */
+  }
+
+  /* Media Query for Mobile */
+  @media (max-width: 480px) {
+    gap: 10px; /* Reduce gap for mobile */
+  }
 `;
 
 const CertificateCard = styled.div`
@@ -70,6 +95,28 @@ const CertificateCard = styled.div`
 
     &:hover {
       text-decoration: underline;
+    }
+  }
+
+  /* Media Query for Tablets and smaller */
+  @media (max-width: 768px) {
+    padding: 15px; /* Adjust padding for tablets */
+    h3 {
+      font-size: 18px; /* Slightly smaller title on tablets */
+    }
+    p {
+      font-size: 14px; /* Adjust paragraph font size for tablets */
+    }
+  }
+
+  /* Media Query for Mobile */
+  @media (max-width: 480px) {
+    padding: 12px; /* Adjust padding for mobile */
+    h3 {
+      font-size: 16px; /* Smaller heading for mobile */
+    }
+    p {
+      font-size: 13px; /* Adjust paragraph font size for mobile */
     }
   }
 `;

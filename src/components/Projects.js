@@ -2,22 +2,30 @@ import React from 'react';
 import styled from 'styled-components';
 import { Zoom } from 'react-reveal';
 
-// Styled Components
+// Styled Components for Layout
 const ProjectsSection = styled.section`
-  position: fixed;
-  height: 100%;
-  width: 100%;
+  position: relative;
   padding: 60px 20px;
-  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for readability */
+  background-color: rgba(129, 236, 253, 0.8); /* Semi-transparent background for readability */
   text-align: center;
   z-index: 1; /* Keep the content above the video */
+  min-height: 100vh; /* Ensure section takes full height */
+
+  /* Make the section responsive */
+  @media (max-width: 768px) {
+    padding: 50px 15px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 40px 10px;
+  }
 `;
 
 const VideoBackground = styled.video`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;  
+  width: 100%;
   height: 100%;
   object-fit: cover;
   z-index: -1; /* Keeps the video behind the content */
@@ -25,12 +33,13 @@ const VideoBackground = styled.video`
 
 const ProjectCard = styled.div`
   padding: 20px;
-  background: linear-gradient(45deg,rgba(235, 205, 14, 0.93),rgb(11, 238, 22),rgb(228, 94, 161)); /* Multi-color gradient background */
+  background: linear-gradient(45deg, rgba(235, 205, 14, 0.93), rgb(11, 238, 22), rgb(228, 94, 161)); /* Multi-color gradient background */
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, background 0.3s ease; /* Added background transition on hover */
   text-align: center;
-
+  width: 100%;
+  
   &:hover {
     transform: scale(1.05);
     background: linear-gradient(45deg, #007bff, #28a745, #ffc107); /* Change gradient on hover */
@@ -46,12 +55,30 @@ const ProjectCard = styled.div`
   h3 {
     font-size: 20px;
     margin: 10px 0;
+    
+    /* Responsive font size */
+    @media (max-width: 768px) {
+      font-size: 1.7rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.5rem;
+    }
   }
 
   p {
     font-size: 16px;
     color: #666;
     margin-bottom: 20px;
+
+    /* Responsive font size */
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1rem;
+    }
   }
 
   a {
@@ -67,10 +94,19 @@ const ProjectCard = styled.div`
 
 const ProjectGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive grid layout */
   gap: 30px;
   justify-items: center;
   align-items: stretch;
+
+  /* Media query for smaller devices */
+  @media (max-width: 768px) {
+    gap: 20px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 15px;
+  }
 `;
 
 const projects = [

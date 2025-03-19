@@ -9,6 +9,16 @@ const AchievementsSection = styled.section`
   background-color: rgba(249, 249, 249, 0.8); /* Semi-transparent background */
   text-align: center;
   z-index: 1; /* Ensure content is above the video */
+
+  /* Media Query for Tablets and Smaller */
+  @media (max-width: 768px) {
+    padding: 50px 15px; /* Adjust padding for smaller screens */
+  }
+
+  /* Media Query for Mobile */
+  @media (max-width: 480px) {
+    padding: 30px 10px; /* Less padding for mobile */
+  }
 `;
 
 const VideoBackground = styled.video`
@@ -19,6 +29,11 @@ const VideoBackground = styled.video`
   height: 100%;
   object-fit: cover;
   z-index: -1; /* Keep the video behind the content */
+
+  /* Media Query for Tablet and smaller */
+  @media (max-width: 768px) {
+    object-fit: contain; /* Adjust the video fit for smaller screens */
+  }
 `;
 
 const AchievementsGrid = styled.div`
@@ -30,6 +45,17 @@ const AchievementsGrid = styled.div`
   justify-items: center; /* Center items inside each grid cell */
   max-width: 1200px; /* Optional: you can limit the max width for large screens */
   margin: 0 auto; /* Center the grid container itself */
+
+  /* Media Query for Tablets and smaller */
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust grid layout for tablets */
+  }
+
+  /* Media Query for Mobile */
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr; /* Stack items vertically on mobile */
+    gap: 15px; /* Reduced gap for mobile */
+  }
 `;
 
 const AchievementCard = styled.div`
@@ -65,6 +91,28 @@ const AchievementCard = styled.div`
   p {
     font-size: 16px;
     color: white; /* Ensure text is visible against gradient background */
+  }
+
+  /* Media Query for Tablets and smaller */
+  @media (max-width: 768px) {
+    padding: 15px; /* Adjust padding for tablets */
+    h3 {
+      font-size: 18px; /* Slightly smaller title on tablets */
+    }
+    p {
+      font-size: 14px; /* Adjust paragraph font size for tablets */
+    }
+  }
+
+  /* Media Query for Mobile */
+  @media (max-width: 480px) {
+    padding: 12px; /* Adjust padding for mobile */
+    h3 {
+      font-size: 16px; /* Smaller heading for mobile */
+    }
+    p {
+      font-size: 13px; /* Adjust paragraph font size for mobile */
+    }
   }
 `;
 

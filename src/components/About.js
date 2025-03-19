@@ -13,6 +13,18 @@ const AboutSection = styled.section`
   padding: 20px;
   text-align: center;
   color: white;
+  flex-direction: column; /* Stacking for smaller devices */
+
+  /* Media Query for Tablets and Smaller */
+  @media (max-width: 768px) {
+    height: auto;
+    padding: 10px;
+  }
+
+  /* Media Query for Mobile */
+  @media (max-width: 480px) {
+    padding: 10px 5px; /* Less padding for mobile */
+  }
 `;
 
 const VideoBackground = styled.video`
@@ -23,6 +35,11 @@ const VideoBackground = styled.video`
   height: 100%;
   object-fit: cover;
   z-index: -1;
+
+  /* Media Query for Tablets and Smaller */
+  @media (max-width: 768px) {
+    object-fit: contain; /* Adjust video fit */
+  }
 `;
 
 const AboutContentWrapper = styled.div`
@@ -33,16 +50,28 @@ const AboutContentWrapper = styled.div`
   width: 100%;
   flex-wrap: wrap;
   text-align: center;
+
+  /* Media Query for Tablets and Smaller */
+  @media (max-width: 768px) {
+    flex-direction: column; /* Stack items vertically */
+  }
 `;
 
 const AboutImage = styled.div`
-  flex: 0 0 300px; /* Increased the image size */
+  flex: 0 0 300px; /* Set initial size */
   margin-right: 40px;
   
   img {
     border-radius: 50%;
     width: 100%;
-    max-width: 300px; /* Increased image size */
+    max-width: 300px; /* Increase max width for bigger images */
+  }
+
+  /* Media Query for Mobile devices */
+  @media (max-width: 480px) {
+    margin-right: 0;
+    margin-bottom: 20px; /* Space between image and text */
+    flex: 0 0 200px; /* Smaller image size for mobile */
   }
 `;
 
@@ -50,7 +79,7 @@ const AboutText = styled.div`
   flex: 1;
   max-width: 600px;
   color: #fff;
-  
+
   h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
@@ -60,6 +89,28 @@ const AboutText = styled.div`
     margin-bottom: 20px;
     font-size: 1.2rem;
     line-height: 1.6;
+  }
+
+  /* Media Query for Tablets and Smaller */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem; /* Slightly smaller title on tablet */
+    }
+
+    p {
+      font-size: 1rem; /* Adjust paragraph font size for tablets */
+    }
+  }
+
+  /* Media Query for Mobile */
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.5rem; /* Smaller heading on mobile */
+    }
+
+    p {
+      font-size: 0.9rem; /* Adjust paragraph font size */
+    }
   }
 `;
 
@@ -76,6 +127,18 @@ const ResumeButton = styled.a`
 
   &:hover {
     background-color: #0056b3;
+  }
+
+  /* Media Query for Tablet and Smaller */
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 12px 25px;
+  }
+
+  /* Media Query for Mobile */
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    padding: 10px 20px;
   }
 `;
 
@@ -96,6 +159,18 @@ const SocialLinks = styled.div`
     &:hover {
       color: #007bff;
     }
+  }
+
+  /* Media Query for Tablets and Smaller */
+  @media (max-width: 768px) {
+    left: 50px;
+    bottom: 40px; /* Adjust bottom for tablet */
+  }
+
+  /* Media Query for Mobile */
+  @media (max-width: 480px) {
+    bottom: 30px; /* Adjust bottom spacing for mobile */
+    left: 20px; /* Move social icons closer on mobile */
   }
 `;
 
@@ -141,7 +216,7 @@ const About = () => {
         </AboutContentWrapper>
       </Fade>
 
-      {/* Social Media Links Below the Left Corner */}
+      {/* Social Media Links */}
       <SocialLinks>
         <a href="https://www.linkedin.com/in/nithish-kumar-7b8194316" target="_blank" rel="noopener noreferrer">
           <FaLinkedin />
